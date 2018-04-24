@@ -1,0 +1,12 @@
+[v-cloak] {
+  opacity: 0
+}
+
+.result {
+  height: 100%;
+}
+
+.loading {
+    width: 100%;
+    height: auto;
+}

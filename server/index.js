@@ -36,11 +36,15 @@ function getResults(body) {
       //.trim().replace("(", "").replace(")", "");
     }
 
+    // .result-title.hdrlnk
+    let url = result.find('.result-title.hdrlnk').attr('href');
+
     results.push({
       title,
       price,
       images,
-      hood
+      hood,
+      url
     });
   });
 
@@ -58,7 +62,7 @@ app.get('/', (request, response) => {
 app.get('/search/:location/:search_term', (request, response) => {
   const { location, search_term } = request.params;
 
-  const url = `https://${location}.craigslist.org/search/msa?sort=date&query=${search_term}`;
+  const url = `https://${location}.craigslist.org/search/sss?sort=date&query=${search_term}`;
 
   fetch(url)
     .then(response => response.text())

@@ -28,10 +28,19 @@ function getResults(body) {
       });
     }
 
+    let hood = result.find('.result-hood').text();
+
+    if (hood) {
+      // javascript truthy, falsy
+      hood = hood.match(/\((.*)\)/)[1];
+      //.trim().replace("(", "").replace(")", "");
+    }
+
     results.push({
       title,
       price,
-      images
+      images,
+      hood
     });
   });
 
@@ -72,8 +81,7 @@ app.use((error, request, response, next) => {
   response.json({
     message: error.message
   });
-
-})
+});
 
 app.listen(5000, () => {
   console.log('Listening on port 5000');
